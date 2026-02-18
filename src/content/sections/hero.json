@@ -1,0 +1,14 @@
+{
+  "eyebrow": "Since 1997",
+  "title": "Where Vision",
+  "titleAccent": "Meets Hospitality",
+  "description": "For over 25 years, Planhotel has been the trusted partner for hotel owners seeking exceptional management, development expertise, and above-average returns. We transform properties into extraordinary destinations.",
+  "primaryButton": "Explore Partnership",
+  "secondaryButton": "View Our Portfolio",
+  "image": "/images/hero-resort.jpg",
+  "stats": [
+    { "number": "11", "label": "Properties" },
+    { "number": "25+", "label": "Years Experience" },
+    { "number": "1000+", "label": "Global Partners" }
+  ]
+}

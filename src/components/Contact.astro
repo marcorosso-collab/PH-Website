@@ -1,0 +1,317 @@
+---
+const contactInfo = {
+	address: "Via Cantonale 3, 6900 Lugano, Switzerland",
+	email: "info@planhotel.com",
+	phone: "+41 (0)91 123 4567"
+};
+
+const partnershipTypes = [
+	"Management Contract Inquiry",
+	"Development Project",
+	"Investment Opportunity",
+	"Press & Media",
+	"Careers",
+	"Other"
+];
+---
+
+<section class="contact" id="contact">
+	<div class="container">
+		<div class="contact-grid">
+			<div class="contact-content">
+				<span class="section-eyebrow">Get In Touch</span>
+				<h2 class="section-title">
+					Let's Build 
+					<span class="accent">Something Great</span>
+				</h2>
+				<p class="contact-description">
+					Whether you're a property owner seeking management expertise, 
+					an investor exploring opportunities, or a potential partner, 
+					we'd love to hear from you.
+				</p>
+
+				<div class="contact-info">
+					<div class="info-item">
+						<span class="info-icon">📍</span>
+						<div>
+							<span class="info-label">Headquarters</span>
+							<span class="info-value">{contactInfo.address}</span>
+						</div>
+					</div>
+					<div class="info-item">
+						<span class="info-icon">✉️</span>
+						<div>
+							<span class="info-label">Email</span>
+							<span class="info-value">{contactInfo.email}</span>
+						</div>
+					</div>
+					<div class="info-item">
+						<span class="info-icon">📞</span>
+						<div>
+							<span class="info-label">Phone</span>
+							<span class="info-value">{contactInfo.phone}</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="awards-preview">
+					<h4>Recognized Excellence</h4>
+					<div class="award-badges">
+						<span class="award-badge">World Travel Awards 2025</span>
+						<span class="award-badge">Tripadvisor Travelers' Choice</span>
+						<span class="award-badge">Small Luxury Hotels</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="contact-form-container">
+				<form class="contact-form">
+					<h3>Send Us a Message</h3>
+					
+					<div class="form-row">
+						<div class="form-group">
+							<label for="firstName">First Name</label>
+							<input type="text" id="firstName" name="firstName" placeholder="John" required />
+						</div>
+						<div class="form-group">
+							<label for="lastName">Last Name</label>
+							<input type="text" id="lastName" name="lastName" placeholder="Smith" required />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="email">Email Address</label>
+						<input type="email" id="email" name="email" placeholder="john@company.com" required />
+					</div>
+
+					<div class="form-group">
+						<label for="company">Company (Optional)</label>
+						<input type="text" id="company" name="company" placeholder="Your company name" />
+					</div>
+
+					<div class="form-group">
+						<label for="partnership">Partnership Interest</label>
+						<select id="partnership" name="partnership" required>
+							<option value="">Select an option</option>
+							{partnershipTypes.map(type => (
+								<option value={type}>{type}</option>
+							))}
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label for="message">Your Message</label>
+						<textarea id="message" name="message" rows="5" placeholder="Tell us about your project or inquiry..." required></textarea>
+					</div>
+
+					<button type="submit" class="btn-submit">
+						Send Message
+						<svg class="arrow-icon" viewBox="0 0 20 20" fill="currentColor">
+							<path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+						</svg>
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.contact {
+		padding: var(--space-2xl) 0;
+		background: var(--color-white);
+	}
+
+	.contact-grid {
+		display: grid;
+		grid-template-columns: 1fr 1.2fr;
+		gap: var(--space-xl);
+		align-items: start;
+	}
+
+	.section-eyebrow {
+		display: inline-block;
+		font-size: 0.8rem;
+		font-weight: 600;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--color-accent);
+		margin-bottom: var(--space-sm);
+	}
+
+	.section-title {
+		font-size: clamp(2rem, 4vw, 3rem);
+		color: var(--color-primary);
+		margin-bottom: var(--space-sm);
+		line-height: 1.2;
+	}
+
+	.section-title .accent {
+		color: var(--color-ocean);
+		font-style: italic;
+	}
+
+	.contact-description {
+		font-size: 1.1rem;
+		line-height: 1.8;
+		color: var(--color-text-light);
+		margin-bottom: var(--space-lg);
+	}
+
+	.contact-info {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+		margin-bottom: var(--space-lg);
+	}
+
+	.info-item {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--space-sm);
+	}
+
+	.info-icon {
+		font-size: 1.5rem;
+		line-height: 1;
+	}
+
+	.info-item div {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.info-label {
+		font-size: 0.8rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--color-text-muted);
+		margin-bottom: 0.25rem;
+	}
+
+	.info-value {
+		font-size: 1rem;
+		color: var(--color-text);
+	}
+
+	.awards-preview h4 {
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--color-primary);
+		margin-bottom: var(--space-sm);
+	}
+
+	.award-badges {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.award-badge {
+		background: var(--color-cream);
+		padding: 0.5rem 1rem;
+		border-radius: 20px;
+		font-size: 0.8rem;
+		color: var(--color-text);
+	}
+
+	.contact-form-container {
+		background: var(--color-cream);
+		padding: var(--space-lg);
+		border-radius: 20px;
+	}
+
+	.contact-form h3 {
+		font-size: 1.5rem;
+		color: var(--color-primary);
+		margin-bottom: var(--space-md);
+	}
+
+	.form-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-sm);
+	}
+
+	.form-group {
+		margin-bottom: var(--space-sm);
+	}
+
+	.form-group label {
+		display: block;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--color-primary);
+		margin-bottom: 0.5rem;
+	}
+
+	.form-group input,
+	.form-group select,
+	.form-group textarea {
+		width: 100%;
+		padding: 0.875rem 1rem;
+		font-size: 1rem;
+		border: 2px solid rgba(26, 26, 46, 0.1);
+		border-radius: 8px;
+		background: var(--color-white);
+		color: var(--color-text);
+		transition: var(--transition-fast);
+		font-family: inherit;
+	}
+
+	.form-group input:focus,
+	.form-group select:focus,
+	.form-group textarea:focus {
+		outline: none;
+		border-color: var(--color-accent);
+	}
+
+	.form-group textarea {
+		resize: vertical;
+		min-height: 120px;
+	}
+
+	.btn-submit {
+		width: 100%;
+		padding: 1rem;
+		background: var(--color-primary);
+		color: var(--color-white);
+		font-size: 1rem;
+		font-weight: 600;
+		border-radius: 8px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		transition: var(--transition-base);
+	}
+
+	.btn-submit:hover {
+		background: var(--color-secondary);
+		transform: translateY(-2px);
+		box-shadow: 0 10px 30px rgba(26, 26, 46, 0.2);
+	}
+
+	.arrow-icon {
+		width: 20px;
+		height: 20px;
+		transition: var(--transition-fast);
+	}
+
+	.btn-submit:hover .arrow-icon {
+		transform: translateX(4px);
+	}
+
+	@media (max-width: 1024px) {
+		.contact-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.form-row {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

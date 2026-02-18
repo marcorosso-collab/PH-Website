@@ -1,0 +1,11 @@
+{
+  "title": "Planhotel Hospitality Group",
+  "description": "Professional hotel management, development, and consultancy services since 1997",
+  "logo": "/logo.png",
+  "favicon": "/favicon.svg",
+  "contact": {
+    "address": "Via Cantonale 3, 6900 Lugano, Switzerland",
+    "email": "info@planhotel.com",
+    "phone": "+41 (0)91 123 4567"
+  }
+}

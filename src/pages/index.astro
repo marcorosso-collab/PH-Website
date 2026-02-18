@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Brands from '../components/Brands.astro';
+import Properties from '../components/Properties.astro';
+import Services from '../components/Services.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Planhotel Hospitality Group | Professional Hotel Management Since 1997">
+	<Header />
+	<main>
+		<Hero />
+		<About />
+		<Brands />
+		<Properties />
+		<Services />
+		<Contact />
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	main {
+		padding-top: 80px;
+	}
+</style>

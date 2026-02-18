@@ -1,0 +1,13 @@
+{
+  "eyebrow": "Our Story",
+  "title": "A Quarter Century of",
+  "titleAccent": "Hospitality Excellence",
+  "paragraph1": "What began in 1997 with Tropical Village in Malindi, Kenya, has evolved into a distinguished hospitality group spanning five countries. Our journey from a single property to 11 extraordinary destinations reflects our unwavering commitment to professional management and authentic guest experiences.",
+  "paragraph2": "Today, Planhotel stands as a wise and passionate leader in the industry, delivering above-average returns for owners while creating memorable moments for travelers seeking the extraordinary.",
+  "mission": "To achieve above average returns for our owners through professional management, positive communication and interaction with our guests, our employees and business partners by continuously emphasizing our brand and values.",
+  "images": [
+    { "image": "/images/about-1.jpg", "alt": "Resort interior" },
+    { "image": "/images/about-2.jpg", "alt": "Our team" },
+    { "image": "/images/about-3.jpg", "alt": "Guest experience" }
+  ]
+}

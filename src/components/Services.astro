@@ -1,0 +1,362 @@
+---
+const services = [
+	{
+		title: "Management Contracts",
+		description: "Full property management including Sales & Marketing, HR, and Accounting. We handle operations while you enjoy above-average returns.",
+		features: ["Revenue Management", "Staff Training & Development", "Marketing & Distribution", "Operational Excellence"],
+		icon: "🎯"
+	},
+	{
+		title: "Consultancy & Development",
+		description: "Expert guidance from concept to completion. Feasibility studies, market analysis, and strategic planning for successful hotel projects.",
+		features: ["Feasibility Studies", "Market Analysis", "Concept Development", "Investment Advisory"],
+		icon: "📊"
+	},
+	{
+		title: "Project Management",
+		description: "Seamless pre-opening services and technical expertise. We ensure your property launches successfully and operates at full potential.",
+		features: ["Pre-opening Services", "Technical Services", "Quality Assurance", "Brand Implementation"],
+		icon: "🔧"
+	}
+];
+
+const stats = [
+	{ number: "25+", label: "Years Experience" },
+	{ number: "11", label: "Managed Properties" },
+	{ number: "1000+", label: "Global Partners" },
+	{ number: "5", label: "Countries" }
+];
+---
+
+<section class="services" id="services">
+	<div class="container">
+		<div class="section-header">
+			<span class="section-eyebrow">What We Offer</span>
+			<h2 class="section-title">
+				Comprehensive 
+				<span class="accent">Hospitality Solutions</span>
+			</h2>
+			<p class="section-description">
+				From concept to operations, we provide end-to-end services that maximize 
+				value for hotel owners and developers across the globe.
+			</p>
+		</div>
+
+		<div class="services-grid">
+			{services.map((service, index) => (
+				<div class="service-card" data-index={index}>
+					<div class="service-icon">{service.icon}</div>
+					<h3 class="service-title">{service.title}</h3>
+					<p class="service-description">{service.description}</p>
+					<ul class="service-features">
+						{service.features.map(feature => (
+							<li>
+								<svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+								</svg>
+								{feature}
+							</li>
+						))}
+					</ul>
+				</div>
+			))}
+		</div>
+
+		<div class="stats-bar">
+			{stats.map(stat => (
+				<div class="stat-item">
+					<span class="stat-number">{stat.number}</span>
+					<span class="stat-label">{stat.label}</span>
+				</div>
+			))}
+		</div>
+
+		<div class="process-section">
+			<h3 class="process-title">Our Partnership Approach</h3>
+			<div class="process-steps">
+				<div class="process-step">
+					<div class="step-number">01</div>
+					<h4>Discovery</h4>
+					<p>Understanding your vision, property potential, and investment goals</p>
+				</div>
+				<div class="process-step">
+					<div class="step-number">02</div>
+					<h4>Strategy</h4>
+					<p>Developing tailored solutions aligned with market opportunities</p>
+				</div>
+				<div class="process-step">
+					<div class="step-number">03</div>
+					<h4>Implementation</h4>
+					<p>Executing with precision, from pre-opening to full operations</p>
+				</div>
+				<div class="process-step">
+					<div class="step-number">04</div>
+					<h4>Optimization</h4>
+					<p>Continuous improvement to maximize returns and guest satisfaction</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.services {
+		padding: var(--space-2xl) 0;
+		background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-sand) 100%);
+	}
+
+	.section-header {
+		text-align: center;
+		max-width: 700px;
+		margin: 0 auto var(--space-xl);
+	}
+
+	.section-eyebrow {
+		display: inline-block;
+		font-size: 0.8rem;
+		font-weight: 600;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--color-accent);
+		margin-bottom: var(--space-sm);
+	}
+
+	.section-title {
+		font-size: clamp(2rem, 4vw, 3rem);
+		color: var(--color-primary);
+		margin-bottom: var(--space-sm);
+	}
+
+	.section-title .accent {
+		color: var(--color-ocean);
+		font-style: italic;
+	}
+
+	.section-description {
+		font-size: 1.1rem;
+		color: var(--color-text-light);
+		line-height: 1.7;
+	}
+
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--space-md);
+		margin-bottom: var(--space-xl);
+	}
+
+	.service-card {
+		background: var(--color-white);
+		padding: var(--space-lg);
+		border-radius: 20px;
+		box-shadow: 0 10px 40px rgba(26, 26, 46, 0.06);
+		transition: var(--transition-base);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.service-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-ocean) 100%);
+	}
+
+	.service-card:hover {
+		transform: translateY(-10px);
+		box-shadow: 0 30px 60px rgba(26, 26, 46, 0.12);
+	}
+
+	.service-icon {
+		font-size: 3rem;
+		margin-bottom: var(--space-sm);
+	}
+
+	.service-title {
+		font-size: 1.5rem;
+		color: var(--color-primary);
+		margin-bottom: var(--space-sm);
+	}
+
+	.service-description {
+		font-size: 1rem;
+		color: var(--color-text-light);
+		line-height: 1.7;
+		margin-bottom: var(--space-md);
+	}
+
+	.service-features {
+		list-style: none;
+	}
+
+	.service-features li {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.9rem;
+		color: var(--color-text);
+		margin-bottom: 0.5rem;
+	}
+
+	.check-icon {
+		width: 18px;
+		height: 18px;
+		color: var(--color-accent);
+		flex-shrink: 0;
+	}
+
+	.stats-bar {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		background: var(--color-primary);
+		border-radius: 16px;
+		padding: var(--space-lg);
+		margin-bottom: var(--space-xl);
+	}
+
+	.stat-item {
+		text-align: center;
+		padding: var(--space-sm);
+		border-right: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.stat-item:last-child {
+		border-right: none;
+	}
+
+	.stat-number {
+		display: block;
+		font-family: var(--font-heading);
+		font-size: 2.5rem;
+		font-weight: 600;
+		color: var(--color-accent);
+		line-height: 1;
+	}
+
+	.stat-label {
+		font-size: 0.85rem;
+		color: rgba(255, 255, 255, 0.7);
+		margin-top: 0.5rem;
+	}
+
+	.process-section {
+		background: var(--color-white);
+		border-radius: 20px;
+		padding: var(--space-xl);
+	}
+
+	.process-title {
+		text-align: center;
+		font-size: 1.75rem;
+		color: var(--color-primary);
+		margin-bottom: var(--space-lg);
+	}
+
+	.process-steps {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: var(--space-md);
+	}
+
+	.process-step {
+		text-align: center;
+		position: relative;
+	}
+
+	.process-step:not(:last-child)::after {
+		content: '';
+		position: absolute;
+		top: 30px;
+		right: -30px;
+		width: 60px;
+		height: 2px;
+		background: linear-gradient(90deg, var(--color-accent) 0%, transparent 100%);
+	}
+
+	.step-number {
+		width: 60px;
+		height: 60px;
+		background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: var(--font-heading);
+		font-size: 1.25rem;
+		font-weight: 600;
+		color: var(--color-primary);
+		margin: 0 auto var(--space-sm);
+	}
+
+	.process-step h4 {
+		font-size: 1.1rem;
+		color: var(--color-primary);
+		margin-bottom: 0.5rem;
+	}
+
+	.process-step p {
+		font-size: 0.9rem;
+		color: var(--color-text-light);
+		line-height: 1.6;
+	}
+
+	@media (max-width: 1024px) {
+		.services-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.service-card {
+			max-width: 600px;
+			margin: 0 auto;
+		}
+
+		.stats-bar {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.stat-item:nth-child(2) {
+			border-right: none;
+		}
+
+		.stat-item:nth-child(1),
+		.stat-item:nth-child(2) {
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			padding-bottom: var(--space-md);
+			margin-bottom: var(--space-md);
+		}
+
+		.process-steps {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.process-step:nth-child(2)::after {
+			display: none;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.stats-bar {
+			grid-template-columns: 1fr;
+		}
+
+		.stat-item {
+			border-right: none;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		}
+
+		.stat-item:last-child {
+			border-bottom: none;
+		}
+
+		.process-steps {
+			grid-template-columns: 1fr;
+		}
+
+		.process-step::after {
+			display: none !important;
+		}
+	}
+</style>

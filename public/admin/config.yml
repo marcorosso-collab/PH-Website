@@ -1,0 +1,150 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Alternative: Use Netlify Identity without Git Gateway
+# Uncomment below and comment out git-gateway above if not using Git
+# backend:
+#   name: test-repo
+
+# Enable local backend for development
+local_backend: true
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  # Site Settings
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "src/content/settings/general.json"
+        fields:
+          - { name: "title", label: "Site Title", widget: "string" }
+          - { name: "description", label: "Meta Description", widget: "text" }
+          - { name: "logo", label: "Logo", widget: "image" }
+          - { name: "favicon", label: "Favicon", widget: "image" }
+          - name: "contact"
+            label: "Contact Information"
+            widget: "object"
+            fields:
+              - { name: "address", label: "Address", widget: "string" }
+              - { name: "email", label: "Email", widget: "string" }
+              - { name: "phone", label: "Phone", widget: "string" }
+
+  # Homepage Sections
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - name: "hero"
+        label: "Hero Section"
+        file: "src/content/sections/hero.json"
+        fields:
+          - { name: "eyebrow", label: "Eyebrow Text", widget: "string" }
+          - { name: "title", label: "Title Line 1", widget: "string" }
+          - { name: "titleAccent", label: "Title Line 2 (Accent)", widget: "string" }
+          - { name: "description", label: "Description", widget: "text" }
+          - { name: "primaryButton", label: "Primary Button Text", widget: "string" }
+          - { name: "secondaryButton", label: "Secondary Button Text", widget: "string" }
+          - { name: "image", label: "Hero Image", widget: "image" }
+          - name: "stats"
+            label: "Stats"
+            widget: "list"
+            fields:
+              - { name: "number", label: "Number", widget: "string" }
+              - { name: "label", label: "Label", widget: "string" }
+
+      - name: "about"
+        label: "About Section"
+        file: "src/content/sections/about.json"
+        fields:
+          - { name: "eyebrow", label: "Eyebrow Text", widget: "string" }
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "titleAccent", label: "Title Accent", widget: "string" }
+          - { name: "paragraph1", label: "Paragraph 1", widget: "text" }
+          - { name: "paragraph2", label: "Paragraph 2", widget: "text" }
+          - { name: "mission", label: "Mission Statement", widget: "text" }
+          - name: "images"
+            label: "About Images"
+            widget: "list"
+            fields:
+              - { name: "image", label: "Image", widget: "image" }
+              - { name: "alt", label: "Alt Text", widget: "string" }
+
+      - name: "brands"
+        label: "Brands Section"
+        file: "src/content/sections/brands.json"
+        fields:
+          - { name: "eyebrow", label: "Eyebrow Text", widget: "string" }
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "titleAccent", label: "Title Accent", widget: "string" }
+          - { name: "description", label: "Description", widget: "text" }
+
+  # Brands Collection
+  - name: "brands"
+    label: "Our Brands"
+    folder: "src/content/brands"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "name", label: "Brand Name", widget: "string" }
+      - { name: "tagline", label: "Tagline", widget: "string" }
+      - { name: "description", label: "Description", widget: "text" }
+      - { name: "color", label: "Brand Color", widget: "color" }
+      - { name: "accent", label: "Accent Color", widget: "color" }
+      - { name: "target", label: "Target Audience", widget: "string" }
+      - { name: "image", label: "Brand Image", widget: "image" }
+      - name: "properties"
+        label: "Properties"
+        widget: "list"
+        fields:
+          - { name: "name", label: "Property Name", widget: "string" }
+
+  # Properties Collection
+  - name: "properties"
+    label: "Properties"
+    folder: "src/content/properties"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "name", label: "Property Name", widget: "string" }
+      - { name: "location", label: "Location", widget: "string" }
+      - { name: "brand", label: "Brand", widget: "select", options: ["Diamonds", "Sandies", "Exploreans", "Independent"] }
+      - { name: "type", label: "Property Type", widget: "string" }
+      - { name: "description", label: "Description", widget: "text" }
+      - { name: "image", label: "Property Image", widget: "image" }
+      - name: "awards"
+        label: "Awards"
+        widget: "list"
+        fields:
+          - { name: "award", label: "Award Name", widget: "string" }
+      - { name: "bookingUrl", label: "Booking URL", widget: "string", required: false }
+
+  # Services Collection
+  - name: "services"
+    label: "Services"
+    folder: "src/content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Service Title", widget: "string" }
+      - { name: "description", label: "Description", widget: "text" }
+      - { name: "icon", label: "Icon", widget: "string" }
+      - name: "features"
+        label: "Features"
+        widget: "list"
+        fields:
+          - { name: "feature", label: "Feature", widget: "string" }
+
+  # Pages Collection
+  - name: "pages"
+    label: "Pages"
+    folder: "src/content/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Page Title", widget: "string" }
+      - { name: "description", label: "Meta Description", widget: "text" }
+      - { name: "body", label: "Page Content", widget: "markdown" }

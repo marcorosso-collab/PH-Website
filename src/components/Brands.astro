@@ -1,0 +1,364 @@
+---
+const brands = [
+	{
+		name: "Diamonds",
+		tagline: "Exquisitely Intimate",
+		description: "Luxury all-inclusive resorts where personalized service meets elegant surroundings. Each Diamonds property offers a regal escape with the signature 'Diamonds Lifestyle' experience.",
+		properties: ["Diamonds Athuruga", "Diamonds Thudufushi", "Diamonds Mapenzi Beach", "Diamonds Bijoux Beach", "Diamonds Malindi", "Diamonds Leisure Beach & Golf"],
+		color: "#2c5f6f",
+		accent: "#c9a962",
+		target: "Honeymooners, luxury seekers, ethical travelers"
+	},
+	{
+		name: "Sandies",
+		tagline: "Family, Friends & Fun",
+		description: "All-inclusive family resorts designed for creating memories together. Natural, easy-going atmospheres where everyone finds their perfect holiday rhythm.",
+		properties: ["Sandies Nungwi"],
+		color: "#c9895d",
+		accent: "#2c5f6f",
+		target: "Families, groups, value-conscious travelers"
+	},
+	{
+		name: "Exploreans",
+		tagline: "Authentic Safari Experience",
+		description: "Intimate lodges in Africa's most spectacular wilderness locations. Immerse yourself in nature while enjoying exceptional comfort and conservation-focused hospitality.",
+		properties: ["Exploreans Malaika", "Exploreans Mara River Camp"],
+		color: "#5a7d5a",
+		accent: "#d4a574",
+		target: "Adventure travelers, safari enthusiasts, nature lovers"
+	}
+];
+
+const independents = [
+	{ name: "The View", location: "Lugano, Switzerland", type: "Design Hotel" },
+	{ name: "Hotel Italia", location: "Cortona, Tuscany", type: "Boutique Hotel" }
+];
+---
+
+<section class="brands" id="brands">
+	<div class="container">
+		<div class="section-header">
+			<span class="section-eyebrow">Our Portfolio</span>
+			<h2 class="section-title">
+				Three Distinct Brands, 
+				<span class="accent">One Standard of Excellence</span>
+			</h2>
+			<p class="section-description">
+				Each Planhotel brand serves a unique guest profile while maintaining our 
+				unwavering commitment to quality, sustainability, and authentic hospitality.
+			</p>
+		</div>
+
+		<div class="brands-grid">
+			{brands.map((brand, index) => (
+				<div class="brand-card" style={`--brand-color: ${brand.color}; --brand-accent: ${brand.accent}`}>
+					<div class="brand-header">
+						<div class="brand-logo">
+							<span class="logo-text">{brand.name}</span>
+						</div>
+						<span class="brand-tagline">{brand.tagline}</span>
+					</div>
+					<div class="brand-content">
+						<p class="brand-description">{brand.description}</p>
+						<div class="brand-properties">
+							<h4>Properties</h4>
+							<ul>
+								{brand.properties.map(prop => (
+									<li>{prop}</li>
+								))}
+							</ul>
+						</div>
+						<div class="brand-target">
+							<span class="target-label">Perfect for</span>
+							<span class="target-text">{brand.target}</span>
+						</div>
+					</div>
+					<div class="brand-cta">
+						<a href="#" class="btn btn-brand">Explore {brand.name}</a>
+					</div>
+				</div>
+			))}
+		</div>
+
+		<div class="independents-section">
+			<h3 class="independents-title">Independent Properties</h3>
+			<p class="independents-description">
+				Unique destinations that stand alone with their own distinctive character
+			</p>
+			<div class="independents-grid">
+				{independents.map(hotel => (
+					<div class="independent-card">
+						<div class="independent-visual">
+							<div class="placeholder-badge">{hotel.type}</div>
+						</div>
+						<div class="independent-info">
+							<h4>{hotel.name}</h4>
+							<span class="location">📍 {hotel.location}</span>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.brands {
+		padding: var(--space-2xl) 0;
+		background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-white) 100%);
+	}
+
+	.section-header {
+		text-align: center;
+		max-width: 700px;
+		margin: 0 auto var(--space-xl);
+	}
+
+	.section-eyebrow {
+		display: inline-block;
+		font-size: 0.8rem;
+		font-weight: 600;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--color-accent);
+		margin-bottom: var(--space-sm);
+	}
+
+	.section-title {
+		font-size: clamp(2rem, 4vw, 3rem);
+		color: var(--color-primary);
+		margin-bottom: var(--space-sm);
+	}
+
+	.section-title .accent {
+		color: var(--color-ocean);
+		font-style: italic;
+	}
+
+	.section-description {
+		font-size: 1.1rem;
+		color: var(--color-text-light);
+		line-height: 1.7;
+	}
+
+	.brands-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--space-md);
+		margin-bottom: var(--space-xl);
+	}
+
+	.brand-card {
+		background: var(--color-white);
+		border-radius: 20px;
+		overflow: hidden;
+		box-shadow: 0 10px 40px rgba(26, 26, 46, 0.06);
+		transition: var(--transition-base);
+		display: flex;
+		flex-direction: column;
+		border-top: 4px solid var(--brand-color);
+	}
+
+	.brand-card:hover {
+		transform: translateY(-10px);
+		box-shadow: 0 30px 60px rgba(26, 26, 46, 0.12);
+	}
+
+	.brand-header {
+		background: linear-gradient(135deg, var(--brand-color) 0%, rgba(44, 95, 111, 0.9) 100%);
+		padding: var(--space-md);
+		color: var(--color-white);
+	}
+
+	.brand-logo {
+		margin-bottom: 0.5rem;
+	}
+
+	.logo-text {
+		font-family: var(--font-heading);
+		font-size: 2rem;
+		font-weight: 600;
+		letter-spacing: -0.02em;
+	}
+
+	.brand-tagline {
+		display: block;
+		font-size: 0.9rem;
+		font-style: italic;
+		opacity: 0.9;
+	}
+
+	.brand-content {
+		padding: var(--space-md);
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.brand-description {
+		font-size: 0.95rem;
+		line-height: 1.7;
+		color: var(--color-text-light);
+		margin-bottom: var(--space-md);
+	}
+
+	.brand-properties {
+		margin-bottom: var(--space-md);
+	}
+
+	.brand-properties h4 {
+		font-size: 0.8rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--color-text-muted);
+		margin-bottom: 0.75rem;
+	}
+
+	.brand-properties ul {
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.brand-properties li {
+		font-size: 0.85rem;
+		background: var(--color-cream);
+		padding: 0.35rem 0.75rem;
+		border-radius: 20px;
+		color: var(--color-text);
+	}
+
+	.brand-target {
+		margin-top: auto;
+		padding-top: var(--space-sm);
+		border-top: 1px solid rgba(26, 26, 46, 0.08);
+	}
+
+	.target-label {
+		display: block;
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--color-text-muted);
+		margin-bottom: 0.25rem;
+	}
+
+	.target-text {
+		font-size: 0.9rem;
+		color: var(--color-text);
+	}
+
+	.brand-cta {
+		padding: 0 var(--space-md) var(--space-md);
+	}
+
+	.btn-brand {
+		display: block;
+		width: 100%;
+		padding: 0.875rem;
+		background: var(--brand-color);
+		color: var(--color-white);
+		font-size: 0.9rem;
+		font-weight: 600;
+		text-align: center;
+		border-radius: 8px;
+		transition: var(--transition-base);
+	}
+
+	.btn-brand:hover {
+		opacity: 0.9;
+		transform: translateY(-2px);
+	}
+
+	.independents-section {
+		text-align: center;
+		padding-top: var(--space-xl);
+		border-top: 1px solid rgba(26, 26, 46, 0.08);
+	}
+
+	.independents-title {
+		font-size: 1.75rem;
+		color: var(--color-primary);
+		margin-bottom: 0.5rem;
+	}
+
+	.independents-description {
+		color: var(--color-text-light);
+		margin-bottom: var(--space-md);
+	}
+
+	.independents-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--space-md);
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.independent-card {
+		background: var(--color-white);
+		border-radius: 16px;
+		overflow: hidden;
+		box-shadow: 0 8px 30px rgba(26, 26, 46, 0.06);
+		transition: var(--transition-base);
+	}
+
+	.independent-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 15px 40px rgba(26, 26, 46, 0.1);
+	}
+
+	.independent-visual {
+		height: 180px;
+		background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-ocean) 100%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+	}
+
+	.placeholder-badge {
+		background: rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(10px);
+		padding: 0.5rem 1rem;
+		border-radius: 20px;
+		color: var(--color-white);
+		font-size: 0.85rem;
+		font-weight: 600;
+	}
+
+	.independent-info {
+		padding: var(--space-sm);
+	}
+
+	.independent-info h4 {
+		font-size: 1.25rem;
+		color: var(--color-primary);
+		margin-bottom: 0.25rem;
+	}
+
+	.location {
+		font-size: 0.9rem;
+		color: var(--color-text-light);
+	}
+
+	@media (max-width: 1024px) {
+		.brands-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.brand-card {
+			max-width: 600px;
+			margin: 0 auto;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.independents-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
