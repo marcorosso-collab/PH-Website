@@ -1,5 +1,19 @@
 ---
-const properties = [
+import { getCollection } from 'astro:content';
+
+const propertiesFromCMS = await getCollection('properties');
+
+// Fallback to hardcoded data if CMS is empty, but prefer CMS
+const properties = propertiesFromCMS.length > 0 ? propertiesFromCMS.map(p => ({
+	name: p.data.name,
+	location: p.data.location,
+	brand: p.data.brand,
+	type: p.data.type,
+	description: p.data.description,
+	awards: p.data.awards || [],
+	image: p.data.image,
+	bookingUrl: p.data.bookingUrl
+})) : [
 	{
 		name: "Diamonds Thudufushi",
 		location: "Maldives",
@@ -119,9 +133,13 @@ const regions = ["All", "Maldives", "Zanzibar", "Kenya", "Europe"];
 			{properties.map(property => (
 				<article class="property-card" data-region={property.location.includes("Maldives") ? "Maldives" : property.location.includes("Zanzibar") ? "Zanzibar" : property.location.includes("Kenya") ? "Kenya" : "Europe"}>
 					<div class="property-image">
-						<div class={`placeholder ${property.brand.toLowerCase()}`}>
-							<span class="brand-badge">{property.brand}</span>
-						</div>
+						{property.image ? (
+							<img src={property.image} alt={property.name} loading="lazy" />
+						) : (
+							<div class={`placeholder ${property.brand.toLowerCase()}`}>
+								<span class="brand-badge">{property.brand}</span>
+							</div>
+						)}
 						{property.awards.length > 0 && (
 							<div class="awards-badge">
 								🏆 {property.awards.length} Award{property.awards.length > 1 ? 's' : ''}
@@ -239,6 +257,12 @@ const regions = ["All", "Maldives", "Zanzibar", "Kenya", "Europe"];
 		position: relative;
 		height: 220px;
 		overflow: hidden;
+	}
+
+	.property-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 
 	.placeholder {
