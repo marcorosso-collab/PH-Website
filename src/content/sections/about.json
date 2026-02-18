@@ -6,8 +6,17 @@
   "paragraph2": "Today, Planhotel stands as a wise and passionate leader in the industry, delivering above-average returns for owners while creating memorable moments for travelers seeking the extraordinary.",
   "mission": "To achieve above average returns for our owners through professional management, positive communication and interaction with our guests, our employees and business partners by continuously emphasizing our brand and values.",
   "images": [
-    { "image": "/images/about-1.jpg", "alt": "Resort interior" },
-    { "image": "/images/about-2.jpg", "alt": "Our team" },
-    { "image": "/images/about-3.jpg", "alt": "Guest experience" }
+    {
+      "image": "/images/uploads/beach-table-set.jpg",
+      "alt": "Resort interior"
+    },
+    {
+      "image": "/images/uploads/masai.jpg",
+      "alt": "Our team"
+    },
+    {
+      "image": "/images/uploads/ananea-malindi-25.jpg",
+      "alt": "Guest experience"
+    }
   ]
 }
