@@ -1,4 +1,6 @@
 ---
+import aboutData from '../content/sections/about.json';
+
 const values = [
 	{
 		title: "Heritage & Trust",
@@ -56,21 +58,11 @@ const values = [
 			</div>
 			<div class="about-visual">
 				<div class="image-grid">
-					<div class="image-item large">
-						<div class="image-placeholder">
-							<span>Resort Interior</span>
+					{aboutData.images.map((img, index) => (
+						<div class={`image-item ${index === 0 ? 'large' : ''}`}>
+							<img src={img.image} alt={img.alt} loading="lazy" />
 						</div>
-					</div>
-					<div class="image-item">
-						<div class="image-placeholder">
-							<span>Team</span>
-						</div>
-					</div>
-					<div class="image-item">
-						<div class="image-placeholder">
-							<span>Experience</span>
-						</div>
-					</div>
+					))}
 				</div>
 			</div>
 		</div>
@@ -181,15 +173,11 @@ const values = [
 		aspect-ratio: 16/9;
 	}
 
-	.image-placeholder {
+	.image-item img {
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(135deg, var(--color-sand) 0%, var(--color-cream) 100%);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: var(--color-text-muted);
-		font-style: italic;
+		object-fit: cover;
+		border-radius: 12px;
 	}
 
 	.values-section {
