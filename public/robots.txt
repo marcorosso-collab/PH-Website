@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://planhotel-corporate-demo.netlify.app/sitemap-index.xml

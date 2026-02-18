@@ -8,9 +8,14 @@ import Properties from '../components/Properties.astro';
 import Services from '../components/Services.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+import heroData from '../content/sections/hero.json';
 ---
 
-<Layout title="Planhotel Hospitality Group | Professional Hotel Management Since 1997">
+<Layout 
+	title="Professional Hotel Management & Luxury Resorts"
+	description="Planhotel Hospitality Group: 25+ years managing luxury resorts in Maldives, Zanzibar, Kenya & Europe. Professional hotel management, development & consultancy services."
+	image={heroData.image}
+>
 	<Header />
 	<main>
 		<Hero />
