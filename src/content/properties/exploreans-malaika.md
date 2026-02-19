@@ -2,9 +2,9 @@
 name: Exploreans Malaika
 location: Kenya
 brand: Exploreans
-type: Safari Lodge
-description: Intimate safari experience in Kenya's wildlife-rich landscapes
-image: 
-awards:
-bookingUrl: 
+type: EcoLodge Resort
+description: Authentic and intimate Kenyan beach club with accommodations
+image: /images/uploads/exploreans-malaika.jpg
+awards: null
+bookingUrl: null
 ---
