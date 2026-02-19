@@ -4,7 +4,7 @@ location: Kenya
 brand: Exploreans
 type: Tented Safari Camp
 description: Authentic tented camp experience in the heart of Maasai Mara
-image: 
-awards:
-bookingUrl: 
+image: /images/uploads/safari-ladscape-masai-mara-camp.jpg
+awards: null
+bookingUrl: null
 ---
